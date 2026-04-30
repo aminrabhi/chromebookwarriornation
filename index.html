@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geometry Work</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #28396C;
+            --accent: #B5E18B;
+            --bg: #f8fafc;
+            --text: #334155;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: "Outfit", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--accent);
+            color: var(--primary);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h3 { margin: 0; font-weight: 800; font-size: 1.2rem; }
+
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 40px;
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        h1 { color: var(--primary); font-size: 2.5rem; margin-bottom: 1.5rem; text-align: left; }
+        h2 { color: var(--primary); margin-top: 2rem; border-bottom: 2px solid var(--accent); display: inline-block; }
+
+
+        article { text-align: left; }
+        p { margin-bottom: 1.2rem; font-size: 1.1rem; color: #475569; }
+        
+        ul { padding-left: 20px; }
+        li { margin-bottom: 10px; }
+
+        .image-placeholder {
+            background: #e2e8f0;
+            color: #64748b;
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 12px;
+            font-style: italic;
+            margin: 30px 0;
+            border: 2px dashed #cbd5e1;
+        }
+
+        .highlight {
+            background-color: #f0fdf4;
+            padding: 20px;
+            border-left: 5px solid var(--accent);
+            border-radius: 4px;
+            margin: 25px 0;
+            font-style: italic;
+        }
+
+  
+        .login-box {
+            margin-top: 40px;
+            padding: 30px;
+            background: #f1f5f9;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        input {
+            font-family: "Outfit", sans-serif;
+            padding: 12px 16px;
+            width: 250px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        button {
+            font-family: "Outfit", sans-serif;
+            padding: 12px 24px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        button:hover {
+            background-color: #1e2a50;
+            transform: translateY(-1px);
+        }
+
+        button:active { transform: translateY(0); }
+
+        #errorMessage { color: #ef4444; font-weight: 600; margin-top: 10px; }
+
+
+        #protectedContent {
+            display: none;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        #displayFrame {
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .nav-controls {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        body.logged-in {
+        --bg: #26282B;      
+        --text: #ffffff;        
+        }   
+
+    body.logged-in header {
+        background-color: #353941; 
+        border-bottom: 2px solid var(--primary);
+        color:#5F85DB;
+    }
+
+    body.logged-in .container {
+        background: #353941;
+        border: 1px solid #334155;
+    }
+
+        body.logged-in .container h1{
+            color:#5F85DB;
+    }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h3>GeoStudy</h3>
+        <span><i>"the best place to study geometry"</i></span>
+    </header>
+
+    <div class="container">
+        <!-- Innocent Article -->
+        <div id="loginSection">
+            <article id="article">
+                <h1>The Hidden Geometry of Nature and Architecture</h1>
+                <p>Geometry is not merely a subject found in textbooks—it is the underlying blueprint of reality. From the minute structure of a snowflake to the grand proportions of the Parthenon, geometric principles govern form, stability, and aesthetics.</p>
+                
+                <div class="image-placeholder">
+                    [Visual: A collage showing a nautilus shell spiral, a honeycomb, and the Parthenon]
+                </div>
+
+                <h2>I. The Sacred Blueprint</h2>
+                <p>Nature displays a profound preference for specific ratios and shapes, often known as sacred geometry. These patterns are not accidental; they are optimized for efficiency, strength, and growth.</p>
+                <ul>
+                    <li><strong>The Hexagon:</strong> Found in honeycombs, offering the most storage capacity using the least amount of wax.</li>
+                    <li><strong>Spirals:</strong> Seen in nautilus shells and galaxies, ensuring optimal packing via the Fibonacci sequence.</li>
+                    <li><strong>Fractals:</strong> Branches and ferns show self-similarity, where small parts resemble the whole.</li>
+                </ul>
+
+                <div class="highlight">
+                    <strong>The Kepler Triangle:</strong> A golden ratio pyramid is based on a triangle where the proportions represent the golden ratio ($\phi \approx 1.618$).
+                </div>
+
+                <div class="login-box">
+                    <h3>Member Access</h3>
+                    <p>Enter your student ID to view advanced architectural diagrams.</p>
+                    <input type="password" id="password" placeholder="Password">
+                    <button onclick="checkPassword()">Enter</button>
+                    <p id="errorMessage">Incorrect Password</p>
+                </div>
+            </article>
+        </div>
+
+        <!-- CWN -->
+        <div id="protectedContent">
+            <h1 style="text-align: center;">Chromebook Warrior Nation</h1>
+            <div class="nav-controls">
+                <input type="text" id="urlInput" placeholder="Enter URL (e.g., instagram.com)" style="flex-grow: 1;">
+                <button onclick="changeSite()">Go</button>
+            </div>
+            <iframe id="displayFrame" src="about:blank" width="100%" height="600px"></iframe>
+            <button onclick="logout()" style="background-color: #64748b; margin-top: 20px; width: fit-content; align-self: center;">Logout</button>
+        </div>
+    </div>
+
+    <script>
+        const CORRECT_PASSWORD = "42710";
+
+        function checkPassword() {
+            var password = document.getElementById("password").value;
+            var loginSection = document.getElementById("loginSection");
+            var protectedContent = document.getElementById("protectedContent");
+            var errorMessage = document.getElementById("errorMessage");
+
+            if (password === CORRECT_PASSWORD) {
+                document.body.classList.add("logged-in"); 
+                loginSection.style.display = "none";
+                protectedContent.style.display = "flex";
+            } else {
+                errorMessage.style.display = "block";
+                document.getElementById("password").value = "";
+            }
+        }
+
+        function logout() {
+            location.reload();
+        }
+
+        function changeSite() {
+            let input = document.getElementById('urlInput').value;
+            let frame = document.getElementById('displayFrame');
+            if (input && !input.startsWith('http')) {
+                input = 'https://' + input;
+            }
+            frame.src = input;
+        }
+    </script>
+</body>
+</html>
+
+
+<!--
+ _      ____  _      ___ ___   ____  ____      __   ___     
+| |    |    || |    |   |   | /    ||    \    /  ] /   \ 
+| |     |  | | |    | _   _ ||  o  ||  D  )  /  / |     |
+| |___  |  | | |___ |  \_/  ||     ||    /  /  /  |  O  |
+|     | |  | |     ||   |   ||  _  ||    \ /   \_ |     |
+|     | |  | |     ||   |   ||  |  ||  .  \\     ||     |
+|_____||____||_____||___|___||__|__||__|\_| \____| \___/ 
+
+-->
