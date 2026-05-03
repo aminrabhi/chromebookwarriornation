@@ -48,6 +48,7 @@
             background: var(--white);
             border-radius: 16px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            margin-right: 200px;
         }
 
         h1 { color: var(--primary); font-size: 2.5rem; margin-bottom: 1.5rem; text-align: left; }
@@ -165,6 +166,32 @@
             color:#5F85DB;
     }
 
+    .sidebar {
+    position: fixed;
+    left: 0;
+    top: 80px;
+    width: 180px;     
+    background: #26282B; 
+    padding: 15px;
+    border-right: 2px solid #5F85DB;
+    height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 999;
+    }
+
+    .sidebar h4 {
+        margin: 0 0 10px 0;
+        color: #5F85DB;
+    }
+
+    .sidebar button {
+        width: 100%;
+        margin: 0;
+        font-size: 0.9rem;
+    }
+
     </style>
 </head>
 <body>
@@ -210,8 +237,16 @@
         <!-- CWN -->
         <div id="protectedContent">
             <h1 style="text-align: center;">Chromebook Warrior Nation</h1>
+            <div class="sidebar">
+            <h4>Quick Links</h4>
+            <p style="color: red;"><i>Panic Key: " ` "</i></p>
+            <button onclick="loadSite('https://d1w7oj52hl4x53.cloudfront.net/')">Proxy</button>
+            <button onclick="loadSite('https://www.bing.com/copilotsearch?q=&FORM=CSSCOP')">AI</button>
+            <button onclick="loadSite('https://turboscribe.ai/downloader/youtube/mp4')">YT → MP4</button>
+            <p><i>created by: lilmarco<i></p>
+        </div>
             <div class="nav-controls">
-                <input type="text" id="urlInput" placeholder="Enter URL (e.g., instagram.com)" style="flex-grow: 1;">
+                <input type="text" id="urlInput" placeholder="Enter URL (e.g., wikipedia.com)" style="flex-grow: 1;">
                 <button onclick="changeSite()">Go</button>
             </div>
             <iframe id="displayFrame" src="about:blank" width="100%" height="600px" allowfullscreen></iframe>
@@ -285,6 +320,16 @@
             iframe.msRequestFullscreen();
         }
     }
+
+    document.addEventListener("keydown", function(event) {
+    if (event.key === "`") {
+        window.location.href = "https://classroom.google.com";
+    }
+});
+
+    function loadSite(url) {
+    document.getElementById('displayFrame').src = url;
+}   
 </script>
 </body>
 </html>
