@@ -214,43 +214,78 @@
                 <input type="text" id="urlInput" placeholder="Enter URL (e.g., instagram.com)" style="flex-grow: 1;">
                 <button onclick="changeSite()">Go</button>
             </div>
-            <iframe id="displayFrame" src="about:blank" width="100%" height="600px"></iframe>
+            <iframe id="displayFrame" src="about:blank" width="100%" height="600px" allowfullscreen></iframe>
+            <button onclick="toggleFullscreen()">Fullscreen</button>
             <button onclick="logout()" style="background-color: #64748b; margin-top: 20px; width: fit-content; align-self: center;">Logout</button>
         </div>
     </div>
 
-    <script>
-        const CORRECT_PASSWORD = "42710";
+<script>
+    const CORRECT_PASSWORD = "42710";
 
-        function checkPassword() {
-            var password = document.getElementById("password").value;
-            var loginSection = document.getElementById("loginSection");
-            var protectedContent = document.getElementById("protectedContent");
-            var errorMessage = document.getElementById("errorMessage");
+    const passwordInput = document.getElementById("password");
+    const errorMessage = document.getElementById("errorMessage");
+    const loginBtn = document.querySelector(".login-box button");
 
-            if (password === CORRECT_PASSWORD) {
-                document.body.classList.add("logged-in"); 
-                loginSection.style.display = "none";
-                protectedContent.style.display = "flex";
-            } else {
-                errorMessage.style.display = "block";
-                document.getElementById("password").value = "";
-            }
+    errorMessage.style.display = "none"; 
+
+    function checkPassword() {
+        if (passwordInput.value === CORRECT_PASSWORD) {
+            document.body.classList.add("logged-in"); 
+            document.getElementById("loginSection").style.display = "none";
+            document.getElementById("protectedContent").style.display = "flex";
+        } else {
+            errorMessage.style.display = "block";
+            passwordInput.value = "";
+            passwordInput.focus();
         }
+    }
 
-        function logout() {
-            location.reload();
-        }
+    
+    loginBtn.addEventListener("click", checkPassword);
 
-        function changeSite() {
-            let input = document.getElementById('urlInput').value;
-            let frame = document.getElementById('displayFrame');
-            if (input && !input.startsWith('http')) {
-                input = 'https://' + input;
-            }
-            frame.src = input;
+    
+    passwordInput.addEventListener("keyup", function(event) {
+        if (event.key === "Enter") {
+            checkPassword();
         }
-    </script>
+    });
+
+    function logout() {
+        location.reload();
+    }
+
+    function changeSite() {
+        let input = document.getElementById('urlInput').value;
+        let frame = document.getElementById('displayFrame');
+        if (!input) return;
+        if (!input.startsWith('http')) {
+            input = 'https://' + input;
+        }
+        frame.src = input;
+    }
+
+    
+    const urlInput = document.getElementById("urlInput");
+    urlInput.addEventListener("keyup", function(event) {
+        if (event.key === "Enter") {
+            changeSite();
+        }
+    });
+
+    function toggleFullscreen() {
+        const iframe = document.getElementById('displayFrame');
+        if (iframe.requestFullscreen) {
+            iframe.requestFullscreen();
+        } else if (iframe.mozRequestFullScreen) { 
+            iframe.mozRequestFullScreen();
+        } else if (iframe.webkitRequestFullscreen) { 
+            iframe.webkitRequestFullscreen();
+        } else if (iframe.msRequestFullscreen) { 
+            iframe.msRequestFullscreen();
+        }
+    }
+</script>
 </body>
 </html>
 
